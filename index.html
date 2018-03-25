@@ -274,6 +274,20 @@
               </ul>
           </li>
           <li>
+            <a href="#api-2" class="toc-h1 toc-link" data-title="api">컴다운 API 사용법</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#pc" class="toc-h2 toc-link" data-title="pc">켜져있는 PC목록 요청하기</a>
+                  </li>
+                  <li>
+                    <a href="#1-pc" class="toc-h2 toc-link" data-title="1-pc">켜져있는 1개 PC정보 요청하기</a>
+                  </li>
+                  <li>
+                    <a href="#pc-2" class="toc-h2 toc-link" data-title="pc">PC 종료 요청하기</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#7a4c98d247" class="toc-h1 toc-link" data-title="">오류 설명</a>
           </li>
       </div>
@@ -585,9 +599,8 @@ $result = curl_exec($get);
 echo $result;
 
 
-/************************************/
-/* 암호화 전송 예제                 */
-/************************************/
+/******************************************************************/
+// 암호화 전송 예제
 
 //이곳에 부여 받은 토큰 정보를 입력합니다.   
 $myToken = "MYTOKENMYTOKEN";
@@ -734,6 +747,188 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
 <tr>
 <td>friendid</td>
 <td>친구의 아이디를 입력합니다.</td>
+</tr>
+</tbody></table>
+<h1 id='api-2'>컴다운 API 사용법</h1><h2 id='pc'>켜져있는 PC목록 요청하기</h2><pre class="highlight shell tab-shell"><code>
+curl <span class="s2">"http://apis.airpage.org/your-access-token/comlist"</span>
+
+</code></pre><pre class="highlight php tab-php"><code>
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/comlist");
+$result = curl_exec($get);
+echo $result;
+
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/comlist"</span><span class="p">,</span>
+  <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
+  <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
+  <span class="na">error</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span> <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/comlist'</span> 
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"error"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"success"</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre>
+<blockquote>
+<p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w"> 
+        </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="s2">"list"</span><span class="p">:</span><span class="w">
+
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="s2">"pcname"</span><span class="p">:</span><span class="s2">"AiRPAGE-PC1"</span><span class="p">,</span><span class="s2">"localip"</span><span class="p">:</span><span class="s2">"192.168.1.11"</span><span class="p">,</span><span class="s2">"time"</span><span class="p">:</span><span class="s2">"2016-04-27 17:00:52"</span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="s2">"pcname"</span><span class="p">:</span><span class="s2">"AiRPAGE-PC2"</span><span class="p">,</span><span class="s2">"localip"</span><span class="p">:</span><span class="s2">"192.168.1.12"</span><span class="p">,</span><span class="s2">"time"</span><span class="p">:</span><span class="s2">"2016-04-27 19:27:39"</span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>API를 호출하는 호스트의 사설 IP대역에 켜져 있는 PC목록을 요청합니다.</p>
+<h3 id='http-6'>HTTP 요청</h3>
+<p><code>GET http://apis.airpage.org/[:token]/comlist</code></p>
+<h3 id='url-6'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>부여받은 개발자 토큰값을 입력합니다.</td>
+</tr>
+<tr>
+<td>comlist</td>
+<td>&#39;comlist&#39;을 입력합니다.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
+</aside>
+<h2 id='1-pc'>켜져있는 1개 PC정보 요청하기</h2><pre class="highlight shell tab-shell"><code>
+curl <span class="s2">"http://apis.airpage.org/your-access-token/comone/192.168.0.8/airpage-pc"</span>
+
+</code></pre><pre class="highlight php tab-php"><code>
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/comone/192.168.0.8/airpage-pc");
+$result = curl_exec($get);
+echo $result;
+
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/comone/192.168.0.8/airpage-pc"</span><span class="p">,</span>
+  <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
+  <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
+  <span class="na">error</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span> <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/comone/192.168.0.8/airpage-pc'</span> 
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"error"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"success"</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre>
+<blockquote>
+<p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w"> 
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>API를 호출하는 호스트의 사설 IP대역에 켜져 있는 1개 PC 상태를 요청합니다.</p>
+<h3 id='http-7'>HTTP 요청</h3>
+<p><code>GET http://apis.airpage.org/[:token]/comone/[:ip]/[:pcname]</code></p>
+<h3 id='url-7'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>부여받은 개발자 토큰값을 입력합니다.</td>
+</tr>
+<tr>
+<td>comone</td>
+<td>&#39;comone&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>상태를 알고싶은 PC의 IP주소를 입력합니다.</td>
+</tr>
+<tr>
+<td>pcname</td>
+<td>상태를 알고싶은 PC의 이름을 입력합니다.</td>
+</tr>
+</tbody></table>
+<h2 id='pc-2'>PC 종료 요청하기</h2><pre class="highlight shell tab-shell"><code>
+curl <span class="s2">"http://pc-ip-address:pc-port/doaction=PLEASESHUTDOWNNOW&amp;from=API"</span>
+
+</code></pre><pre class="highlight php tab-php"><code>
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://pc-ip-address:pc-port/doaction=PLEASESHUTDOWNNOW<span class="ni">&amp;from=API");</span>
+$result = curl_exec($get);
+echo $result;
+
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://pc-ip-address:pc-port/doaction=PLEASESHUTDOWNNOW&amp;from=API"</span><span class="p">,</span>
+  <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
+  <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
+  <span class="na">error</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span> <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://pc-ip-address:pc-port/doaction=PLEASESHUTDOWNNOW&amp;from=API'</span> 
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"error"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"success"</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre>
+<blockquote>
+<p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w"> 
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>API를 호출하는 호스트의 사설 IP대역에 켜져 있는 1개 PC 상태를 요청합니다.</p>
+<h3 id='http-8'>HTTP 요청</h3>
+<p><code>GET http://[:ip]/doaction=PLEASESHUTDOWNNOW&amp;from=API</code></p>
+<h3 id='url-8'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ip</td>
+<td>종료할 PC의 IP주소를 입력합니다.</td>
 </tr>
 </tbody></table>
 <h1 id='7a4c98d247'>오류 설명</h1>

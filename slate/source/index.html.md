@@ -370,9 +370,8 @@ $result = curl_exec($get);
 echo $result;
 
 
-/************************************/
-/* 암호화 전송 예제                 */
-/************************************/
+/******************************************************************/
+// 암호화 전송 예제
 
 //이곳에 부여 받은 토큰 정보를 입력합니다.   
 $myToken = "MYTOKENMYTOKEN";
@@ -514,3 +513,217 @@ phonenumber | 연락받을 전화번호를 입력합니다.
 iso | 연락받을 전화번호의 국가 ISO값을 입력합니다.
 friendid | 친구의 아이디를 입력합니다.
 
+
+
+
+# 컴다운 API 사용법 
+
+## 켜져있는 PC목록 요청하기 
+
+
+```shell
+
+curl "http://apis.airpage.org/your-access-token/comlist"
+
+```
+
+```php
+
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/comlist");
+$result = curl_exec($get);
+echo $result;
+
+```
+
+```javascript
+
+$.ajax({
+  url : "http://apis.airpage.org/your-access-token/comlist",
+  dataType : "jsonp",
+  type : "GET",
+  success : function(r) { console.log(JSON.stringify(r)); },
+  error : function(err) { console.log(JSON.stringify(err)); }
+});
+
+```
+
+```python
+
+import requests 
+URL = 'http://apis.airpage.org/your-access-token/comlist' 
+res = requests.get(URL)
+
+if res.status_code is not 200:
+  print ("error")
+else:
+  print ("success")
+  print (res.text)
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  { 
+		"result":"success","list":
+
+	[
+		{"pcname":"AiRPAGE-PC1","localip":"192.168.1.11","time":"2016-04-27 17:00:52"},
+		{"pcname":"AiRPAGE-PC2","localip":"192.168.1.12","time":"2016-04-27 19:27:39"}
+	]
+  }
+```
+
+API를 호출하는 호스트의 사설 IP대역에 켜져 있는 PC목록을 요청합니다.
+
+### HTTP 요청 
+
+`GET http://apis.airpage.org/[:token]/comlist`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+token | 부여받은 개발자 토큰값을 입력합니다. 
+comlist | 'comlist'을 입력합니다. 
+
+<aside class="warning">
+GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
+</aside>
+
+
+## 켜져있는 1개 PC정보 요청하기 
+
+
+```shell
+
+curl "http://apis.airpage.org/your-access-token/comone/192.168.0.8/airpage-pc"
+
+```
+
+```php
+
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/comone/192.168.0.8/airpage-pc");
+$result = curl_exec($get);
+echo $result;
+
+```
+
+```javascript
+
+$.ajax({
+  url : "http://apis.airpage.org/your-access-token/comone/192.168.0.8/airpage-pc",
+  dataType : "jsonp",
+  type : "GET",
+  success : function(r) { console.log(JSON.stringify(r)); },
+  error : function(err) { console.log(JSON.stringify(err)); }
+});
+
+```
+
+```python
+
+import requests 
+URL = 'http://apis.airpage.org/your-access-token/comone/192.168.0.8/airpage-pc' 
+res = requests.get(URL)
+
+if res.status_code is not 200:
+  print ("error")
+else:
+  print ("success")
+  print (res.text)
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {	
+	"result":"success",	
+	"status": "on"
+  }
+```
+
+API를 호출하는 호스트의 사설 IP대역에 켜져 있는 1개 PC 상태를 요청합니다.
+
+### HTTP 요청 
+
+`GET http://apis.airpage.org/[:token]/comone/[:ip]/[:pcname]`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+token | 부여받은 개발자 토큰값을 입력합니다. 
+comone | 'comone'을 입력합니다. 
+ip | 상태를 알고싶은 PC의 IP주소를 입력합니다. 
+pcname | 상태를 알고싶은 PC의 이름을 입력합니다.
+
+
+
+## PC 종료 요청하기 
+
+
+```shell
+
+curl "http://pc-ip-address:pc-port/doaction=PLEASESHUTDOWNNOW&from=API"
+
+```
+
+```php
+
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://pc-ip-address:pc-port/doaction=PLEASESHUTDOWNNOW&from=API");
+$result = curl_exec($get);
+echo $result;
+
+```
+
+```javascript
+
+$.ajax({
+  url : "http://pc-ip-address:pc-port/doaction=PLEASESHUTDOWNNOW&from=API",
+  dataType : "jsonp",
+  type : "GET",
+  success : function(r) { console.log(JSON.stringify(r)); },
+  error : function(err) { console.log(JSON.stringify(err)); }
+});
+
+```
+
+```python
+
+import requests 
+URL = 'http://pc-ip-address:pc-port/doaction=PLEASESHUTDOWNNOW&from=API' 
+res = requests.get(URL)
+
+if res.status_code is not 200:
+  print ("error")
+else:
+  print ("success")
+  print (res.text)
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {	
+	"result":"success",	
+  }
+```
+
+API를 호출하는 호스트의 사설 IP대역에 켜져 있는 1개 PC 상태를 요청합니다.
+
+### HTTP 요청 
+
+`GET http://[:ip]/doaction=PLEASESHUTDOWNNOW&from=API`
+
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+ip | 종료할 PC의 IP주소를 입력합니다. 
