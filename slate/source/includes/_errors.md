@@ -4,7 +4,7 @@
 오류발생시 설명입니다.
 </aside>
 
-DronePlay Open API uses the following error codes:
+AiRPAGE OPEN API uses the following error codes:
 
 
 Error Code | Meaning
