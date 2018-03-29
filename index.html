@@ -590,11 +590,11 @@ GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
 전화요청은 30초후에 자동으로 요청이 종료 됩니다.
 </aside>
 <h2 id='372a435c62'>전화요청 종료하기</h2><pre class="highlight shell tab-shell"><code>
-curl <span class="s2">"http://apis.airpage.org/your-access-token/cancel/your-phone-number/kr/friendid"</span>
+curl <span class="s2">"http://apis.airpage.org/your-access-token/neocancel/your-phone-number/friendid"</span>
 
 </code></pre><pre class="highlight php tab-php"><code>
 $get = curl_init();
-curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/cancel/your-phone-number/kr/friendid");
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/neocancel/your-phone-number/friendid");
 $result = curl_exec($get);
 echo $result;
 
@@ -672,7 +672,7 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
    $post = curl_init();
 
    curl_setopt($post, CURLOPT_REFERER, 'http://' . $myHost .'/');          
-   curl_setopt($post, CURLOPT_URL, 'http://airpage.org/callback/callback_api.php');
+   curl_setopt($post, CURLOPT_URL, 'http://apis.airpage.org');
    curl_setopt($post, CURLOPT_POST, true);
    curl_setopt($post, CURLOPT_HTTPHEADER, array("Content-type: application/json"));        
    curl_setopt($post, CURLOPT_POSTFIELDS, $content);       
@@ -692,7 +692,7 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
 
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/cancel/your-phone-number/kr/friendid"</span><span class="p">,</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/neocancel/friendid"</span><span class="p">,</span>
   <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
   <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
@@ -701,7 +701,7 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
 
 </code></pre><pre class="highlight python tab-python"><code>
 <span class="kn">import</span> <span class="nn">requests</span> 
-<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/cancel/your-phone-number/kr/friendid'</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/neocancel/your-phone-number/friendid'</span> 
 <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
@@ -720,7 +720,7 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
 </span></code></pre>
 <p>친구에게 전화요청을 전송합니다.</p>
 <h3 id='http-5'>HTTP 요청</h3>
-<p><code>GET http://apis.airpage.org/[:token]/cancel/[:phonenumber]/[:iso]/[:friendid]</code></p>
+<p><code>GET http://apis.airpage.org/[:token]/neocancel/[:friendid]</code></p>
 <h3 id='url-5'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -733,16 +733,8 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
 <td>부여받은 개발자 토큰값을 입력합니다.</td>
 </tr>
 <tr>
-<td>cancel</td>
-<td>&#39;cancel&#39;을 입력합니다.</td>
-</tr>
-<tr>
-<td>phonenumber</td>
-<td>연락받을 전화번호를 입력합니다.</td>
-</tr>
-<tr>
-<td>iso</td>
-<td>연락받을 전화번호의 국가 ISO값을 입력합니다.</td>
+<td>neocancel</td>
+<td>&#39;neocancel&#39;을 입력합니다.</td>
 </tr>
 <tr>
 <td>friendid</td>

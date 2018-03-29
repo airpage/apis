@@ -358,14 +358,14 @@ GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
 
 ```shell
 
-curl "http://apis.airpage.org/your-access-token/cancel/your-phone-number/kr/friendid"
+curl "http://apis.airpage.org/your-access-token/neocancel/your-phone-number/friendid"
 
 ```
 
 ```php
 
 $get = curl_init();
-curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/cancel/your-phone-number/kr/friendid");
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/neocancel/your-phone-number/friendid");
 $result = curl_exec($get);
 echo $result;
 
@@ -443,7 +443,7 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
    $post = curl_init();
  
    curl_setopt($post, CURLOPT_REFERER, 'http://' . $myHost .'/');          
-   curl_setopt($post, CURLOPT_URL, 'http://airpage.org/callback/callback_api.php');
+   curl_setopt($post, CURLOPT_URL, 'http://apis.airpage.org');
    curl_setopt($post, CURLOPT_POST, true);
    curl_setopt($post, CURLOPT_HTTPHEADER, array("Content-type: application/json"));        
    curl_setopt($post, CURLOPT_POSTFIELDS, $content);       
@@ -466,7 +466,7 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
 ```javascript
 
 $.ajax({
-  url : "http://apis.airpage.org/your-access-token/cancel/your-phone-number/kr/friendid",
+  url : "http://apis.airpage.org/your-access-token/neocancel/friendid",
   dataType : "jsonp",
   type : "GET",
   success : function(r) { console.log(JSON.stringify(r)); },
@@ -478,7 +478,7 @@ $.ajax({
 ```python
 
 import requests 
-URL = 'http://apis.airpage.org/your-access-token/cancel/your-phone-number/kr/friendid' 
+URL = 'http://apis.airpage.org/your-access-token/neocancel/your-phone-number/friendid' 
 res = requests.get(URL)
 
 if res.status_code is not 200:
@@ -501,16 +501,14 @@ else:
 
 ### HTTP 요청 
 
-`GET http://apis.airpage.org/[:token]/cancel/[:phonenumber]/[:iso]/[:friendid]`
+`GET http://apis.airpage.org/[:token]/neocancel/[:friendid]`
 
 ### URL 파라메터
 
 파라메터 | 설명
 --------- | -----------
 token | 부여받은 개발자 토큰값을 입력합니다. 
-cancel | 'cancel'을 입력합니다. 
-phonenumber | 연락받을 전화번호를 입력합니다.
-iso | 연락받을 전화번호의 국가 ISO값을 입력합니다.
+neocancel | 'neocancel'을 입력합니다. 
 friendid | 친구의 아이디를 입력합니다.
 
 
