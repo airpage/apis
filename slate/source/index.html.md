@@ -348,7 +348,7 @@ else:
 
 ### HTTP 요청 
 
-`GET http://apis.airpage.org/[:token]/dkdkhistory[:year]`
+`GET http://apis.airpage.org/[:token]/dkdkhistory/[:year]`
 
 ### URL 파라메터
 
