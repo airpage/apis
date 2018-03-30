@@ -270,6 +270,94 @@ token | 부여받은 개발자 토큰값을 입력합니다.
 dkdkup | 'dkdkup'을 입력합니다. 
 
 
+## 주고받은 하트수 보기 
+
+
+```shell
+
+curl "http://apis.airpage.org/your-access-token/dkdkhistory/target-year"
+
+```
+
+```php
+
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkhistory/target-year");
+$result = curl_exec($get);
+echo $result;
+
+```
+
+```javascript
+
+$.ajax({
+  url : "http://apis.airpage.org/your-access-token/dkdkhistory/target-year",
+  dataType : "jsonp",
+  type : "GET",
+  success : function(r) { console.log(JSON.stringify(r)); },
+  error : function(err) { console.log(JSON.stringify(err)); }
+});
+
+```
+
+```python
+
+import requests 
+URL = 'http://apis.airpage.org/your-access-token/dkdkhistory/target-year?callback=abc' 
+res = requests.get(URL)
+
+if res.status_code is not 200:
+  print ("error")
+else:
+  print ("success")
+  print (res.text)
+
+
+```
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+
+{
+   "result" : "success",
+   "sentdata" : [
+	{
+		"count":"5",
+		"time":"2018-03-27 22:47:30"
+	},
+	{
+		"count":"12",
+		"time":"2018-03-28 01:04:45"
+	}
+   ],
+   "recvdata" : [
+	{
+		"count":"37",
+		"time":"2018-03-27 22:47:30"
+	},
+	{
+		"count":"83",
+		"time":"2018-03-28 01:04:45"
+	}
+   ]
+}
+
+```
+
+친구와 주고받은 하트수와 시각을 응답합니다.
+
+### HTTP 요청 
+
+`GET http://apis.airpage.org/[:token]/dkdkhistory[:year]`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+token | 부여받은 개발자 토큰값을 입력합니다. 
+dkdkhistory | 'dkdkhistory'을 입력합니다. 
+year | 확인하고픈 연도 4자리 숫자를 입력합니다. 
+
 # 시시콜콜(콜백나우) API 사용법 
 
 ## 전화요청 하기 

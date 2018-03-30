@@ -260,6 +260,9 @@
                   <li>
                     <a href="#de99a520c9" class="toc-h2 toc-link" data-title="">두근거림 전송 끝내기</a>
                   </li>
+                  <li>
+                    <a href="#c47ce99243" class="toc-h2 toc-link" data-title="">주고받은 하트수 보기</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -510,6 +513,89 @@ echo $result;
 <td>&#39;dkdkup&#39;을 입력합니다.</td>
 </tr>
 </tbody></table>
+<h2 id='c47ce99243'>주고받은 하트수 보기</h2><pre class="highlight shell tab-shell"><code>
+curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdkhistory/target-year"</span>
+
+</code></pre><pre class="highlight php tab-php"><code>
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkhistory/target-year");
+$result = curl_exec($get);
+echo $result;
+
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/dkdkhistory/target-year"</span><span class="p">,</span>
+  <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
+  <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
+  <span class="na">error</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span> <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/dkdkhistory/target-year?callback=abc'</span> 
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"error"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"success"</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+
+</code></pre>
+<blockquote>
+<p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+   </span><span class="s2">"result"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"sentdata"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time"</span><span class="p">:</span><span class="s2">"2018-03-27 22:47:30"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time"</span><span class="p">:</span><span class="s2">"2018-03-28 01:04:45"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"recvdata"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="s2">"37"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time"</span><span class="p">:</span><span class="s2">"2018-03-27 22:47:30"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="s2">"83"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time"</span><span class="p">:</span><span class="s2">"2018-03-28 01:04:45"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>친구와 주고받은 하트수와 시각을 응답합니다.</p>
+<h3 id='http-4'>HTTP 요청</h3>
+<p><code>GET http://apis.airpage.org/[:token]/dkdkhistory[:year]</code></p>
+<h3 id='url-4'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>부여받은 개발자 토큰값을 입력합니다.</td>
+</tr>
+<tr>
+<td>dkdkhistory</td>
+<td>&#39;dkdkhistory&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>year</td>
+<td>확인하고픈 연도 4자리 숫자를 입력합니다.</td>
+</tr>
+</tbody></table>
 <h1 id='api'>시시콜콜(콜백나우) API 사용법</h1><h2 id='aa1a6b35ae'>전화요청 하기</h2><pre class="highlight shell tab-shell"><code>
 curl <span class="s2">"http://apis.airpage.org/your-access-token/neocallback/your-phone-number/kr/friendid"</span>
 
@@ -551,9 +637,9 @@ echo $result;
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>친구에게 전화요청을 전송합니다.</p>
-<h3 id='http-4'>HTTP 요청</h3>
+<h3 id='http-5'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/neocallback/[:phonenumber]/[:iso]/[:friendid]</code></p>
-<h3 id='url-4'>URL 파라메터</h3>
+<h3 id='url-5'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -719,9 +805,9 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>친구에게 전화요청을 전송합니다.</p>
-<h3 id='http-5'>HTTP 요청</h3>
+<h3 id='http-6'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/neocancel/[:friendid]</code></p>
-<h3 id='url-5'>URL 파라메터</h3>
+<h3 id='url-6'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -784,9 +870,9 @@ echo $result;
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>API를 호출하는 호스트의 사설 IP대역에 켜져 있는 PC목록을 요청합니다.</p>
-<h3 id='http-6'>HTTP 요청</h3>
+<h3 id='http-7'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/comlist</code></p>
-<h3 id='url-6'>URL 파라메터</h3>
+<h3 id='url-7'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -845,9 +931,9 @@ echo $result;
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>API를 호출하는 호스트의 사설 IP대역에 켜져 있는 1개 PC 상태를 요청합니다.</p>
-<h3 id='http-7'>HTTP 요청</h3>
+<h3 id='http-8'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/comone/[:ip]/[:pcname]</code></p>
-<h3 id='url-7'>URL 파라메터</h3>
+<h3 id='url-8'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -909,9 +995,9 @@ echo $result;
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>API를 호출하는 호스트의 사설 IP대역에 켜져 있는 1개 PC 상태를 요청합니다.</p>
-<h3 id='http-8'>HTTP 요청</h3>
+<h3 id='http-9'>HTTP 요청</h3>
 <p><code>GET http://[:ip]/doaction=PLEASESHUTDOWNNOW&amp;from=API</code></p>
-<h3 id='url-8'>URL 파라메터</h3>
+<h3 id='url-9'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
