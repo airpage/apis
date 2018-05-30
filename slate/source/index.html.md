@@ -10,7 +10,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <div class="fb-like" data-href="https://www.facebook.com/airpage.org/" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
   - <a href='http://airpage.org/'>AiRPAGE 홈</a>
-  - <a href='http://airpage.org/airpage_apis'>AiRPAGE 개발자 등록</a>
+  - <a href='http://airpage.org/xe/airpage_apis'>AiRPAGE 개발자 등록</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 includes:
   - errors
