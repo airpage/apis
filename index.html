@@ -396,17 +396,17 @@ echo $result;
 GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
 </aside>
 <h2 id='6bbb609d78'>두근거림 전송하기</h2><pre class="highlight shell tab-shell"><code>
-curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdktouch"</span>
+curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdktouch/friendid"</span>
 
 </code></pre><pre class="highlight php tab-php"><code>
 $get = curl_init();
-curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdktouch");
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdktouch/friendid");
 $result = curl_exec($get);
 echo $result;
 
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/dkdktouch"</span><span class="p">,</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/dkdktouch/friendid"</span><span class="p">,</span>
   <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
   <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
@@ -415,7 +415,7 @@ echo $result;
 
 </code></pre><pre class="highlight python tab-python"><code>
 <span class="kn">import</span> <span class="nn">requests</span> 
-<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/dkdktouch?callback=abc'</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/dkdktouch/friendid/?callback=abc'</span> 
 <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
@@ -437,7 +437,7 @@ echo $result;
 </span></code></pre>
 <p>친구에게 두근거림을 전송합니다.</p>
 <h3 id='http-2'>HTTP 요청</h3>
-<p><code>GET http://apis.airpage.org/[:token]/dkdktouch</code></p>
+<p><code>GET http://apis.airpage.org/[:token]/dkdktouch/[:friendid]</code></p>
 <h3 id='url-2'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -453,19 +453,23 @@ echo $result;
 <td>dkdktouch</td>
 <td>&#39;dkdktouch&#39;을 입력합니다.</td>
 </tr>
+<tr>
+<td>friendid</td>
+<td>친구의 닉네임을 입력합니다.</td>
+</tr>
 </tbody></table>
 <h2 id='de99a520c9'>두근거림 전송 끝내기</h2><pre class="highlight shell tab-shell"><code>
-curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdkup"</span>
+curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdkup/friendid"</span>
 
 </code></pre><pre class="highlight php tab-php"><code>
 $get = curl_init();
-curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkup");
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkup/friendid");
 $result = curl_exec($get);
 echo $result;
 
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/dkdkup"</span><span class="p">,</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/dkdkup/friendid"</span><span class="p">,</span>
   <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
   <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
@@ -474,7 +478,7 @@ echo $result;
 
 </code></pre><pre class="highlight python tab-python"><code>
 <span class="kn">import</span> <span class="nn">requests</span> 
-<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/dkdkup?callback=abc'</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/dkdkup/friendid/?callback=abc'</span> 
 <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
@@ -496,7 +500,7 @@ echo $result;
 </span></code></pre>
 <p>친구에게 전송하던 두근거림을 멈춥니다.</p>
 <h3 id='http-3'>HTTP 요청</h3>
-<p><code>GET http://apis.airpage.org/[:token]/dkdkup</code></p>
+<p><code>GET http://apis.airpage.org/[:token]/dkdkup/friendid</code></p>
 <h3 id='url-3'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -512,19 +516,23 @@ echo $result;
 <td>dkdkup</td>
 <td>&#39;dkdkup&#39;을 입력합니다.</td>
 </tr>
+<tr>
+<td>friendid</td>
+<td>친구의 닉네임을 입력합니다.</td>
+</tr>
 </tbody></table>
 <h2 id='c47ce99243'>주고받은 하트수 보기</h2><pre class="highlight shell tab-shell"><code>
-curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdkhistory/target-year"</span>
+curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdkhistory/target-year/friendid"</span>
 
 </code></pre><pre class="highlight php tab-php"><code>
 $get = curl_init();
-curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkhistory/target-year");
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkhistory/target-year/friendid");
 $result = curl_exec($get);
 echo $result;
 
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/dkdkhistory/target-year"</span><span class="p">,</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/dkdkhistory/target-year/friendid"</span><span class="p">,</span>
   <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
   <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
@@ -533,7 +541,7 @@ echo $result;
 
 </code></pre><pre class="highlight python tab-python"><code>
 <span class="kn">import</span> <span class="nn">requests</span> 
-<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/dkdkhistory/target-year?callback=abc'</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/dkdkhistory/target-year/friendid?callback=abc'</span> 
 <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
@@ -575,7 +583,7 @@ echo $result;
 </span></code></pre>
 <p>친구와 주고받은 하트수와 시각을 응답합니다.</p>
 <h3 id='http-4'>HTTP 요청</h3>
-<p><code>GET http://apis.airpage.org/[:token]/dkdkhistory/[:year]</code></p>
+<p><code>GET http://apis.airpage.org/[:token]/dkdkhistory/[:year]/[:friendid]</code></p>
 <h3 id='url-4'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -594,6 +602,10 @@ echo $result;
 <tr>
 <td>year</td>
 <td>확인하고픈 연도 4자리 숫자를 입력합니다.</td>
+</tr>
+<tr>
+<td>friendid</td>
+<td>친구의 닉네임을 입력합니다.</td>
 </tr>
 </tbody></table>
 <h1 id='api'>시시콜콜(콜백나우) API 사용법</h1><h2 id='aa1a6b35ae'>전화요청 하기</h2><pre class="highlight shell tab-shell"><code>

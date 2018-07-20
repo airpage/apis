@@ -138,14 +138,14 @@ GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
 
 ```shell
 
-curl "http://apis.airpage.org/your-access-token/dkdktouch"
+curl "http://apis.airpage.org/your-access-token/dkdktouch/friendid"
 
 ```
 
 ```php
 
 $get = curl_init();
-curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdktouch");
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdktouch/friendid");
 $result = curl_exec($get);
 echo $result;
 
@@ -154,7 +154,7 @@ echo $result;
 ```javascript
 
 $.ajax({
-  url : "http://apis.airpage.org/your-access-token/dkdktouch",
+  url : "http://apis.airpage.org/your-access-token/dkdktouch/friendid",
   dataType : "jsonp",
   type : "GET",
   success : function(r) { console.log(JSON.stringify(r)); },
@@ -166,7 +166,7 @@ $.ajax({
 ```python
 
 import requests 
-URL = 'http://apis.airpage.org/your-access-token/dkdktouch?callback=abc' 
+URL = 'http://apis.airpage.org/your-access-token/dkdktouch/friendid/?callback=abc' 
 res = requests.get(URL)
 
 if res.status_code is not 200:
@@ -191,7 +191,7 @@ else:
 
 ### HTTP 요청 
 
-`GET http://apis.airpage.org/[:token]/dkdktouch`
+`GET http://apis.airpage.org/[:token]/dkdktouch/[:friendid]`
 
 ### URL 파라메터
 
@@ -199,6 +199,7 @@ else:
 --------- | -----------
 token | 부여받은 개발자 토큰값을 입력합니다. 
 dkdktouch | 'dkdktouch'을 입력합니다. 
+friendid | 친구의 닉네임을 입력합니다. 
 
 
 
@@ -207,14 +208,14 @@ dkdktouch | 'dkdktouch'을 입력합니다.
 
 ```shell
 
-curl "http://apis.airpage.org/your-access-token/dkdkup"
+curl "http://apis.airpage.org/your-access-token/dkdkup/friendid"
 
 ```
 
 ```php
 
 $get = curl_init();
-curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkup");
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkup/friendid");
 $result = curl_exec($get);
 echo $result;
 
@@ -223,7 +224,7 @@ echo $result;
 ```javascript
 
 $.ajax({
-  url : "http://apis.airpage.org/your-access-token/dkdkup",
+  url : "http://apis.airpage.org/your-access-token/dkdkup/friendid",
   dataType : "jsonp",
   type : "GET",
   success : function(r) { console.log(JSON.stringify(r)); },
@@ -235,7 +236,7 @@ $.ajax({
 ```python
 
 import requests 
-URL = 'http://apis.airpage.org/your-access-token/dkdkup?callback=abc' 
+URL = 'http://apis.airpage.org/your-access-token/dkdkup/friendid/?callback=abc' 
 res = requests.get(URL)
 
 if res.status_code is not 200:
@@ -260,7 +261,7 @@ else:
 
 ### HTTP 요청 
 
-`GET http://apis.airpage.org/[:token]/dkdkup`
+`GET http://apis.airpage.org/[:token]/dkdkup/friendid`
 
 ### URL 파라메터
 
@@ -268,6 +269,7 @@ else:
 --------- | -----------
 token | 부여받은 개발자 토큰값을 입력합니다. 
 dkdkup | 'dkdkup'을 입력합니다. 
+friendid | 친구의 닉네임을 입력합니다. 
 
 
 ## 주고받은 하트수 보기 
@@ -275,14 +277,14 @@ dkdkup | 'dkdkup'을 입력합니다.
 
 ```shell
 
-curl "http://apis.airpage.org/your-access-token/dkdkhistory/target-year"
+curl "http://apis.airpage.org/your-access-token/dkdkhistory/target-year/friendid"
 
 ```
 
 ```php
 
 $get = curl_init();
-curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkhistory/target-year");
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkhistory/target-year/friendid");
 $result = curl_exec($get);
 echo $result;
 
@@ -291,7 +293,7 @@ echo $result;
 ```javascript
 
 $.ajax({
-  url : "http://apis.airpage.org/your-access-token/dkdkhistory/target-year",
+  url : "http://apis.airpage.org/your-access-token/dkdkhistory/target-year/friendid",
   dataType : "jsonp",
   type : "GET",
   success : function(r) { console.log(JSON.stringify(r)); },
@@ -303,7 +305,7 @@ $.ajax({
 ```python
 
 import requests 
-URL = 'http://apis.airpage.org/your-access-token/dkdkhistory/target-year?callback=abc' 
+URL = 'http://apis.airpage.org/your-access-token/dkdkhistory/target-year/friendid?callback=abc' 
 res = requests.get(URL)
 
 if res.status_code is not 200:
@@ -348,7 +350,7 @@ else:
 
 ### HTTP 요청 
 
-`GET http://apis.airpage.org/[:token]/dkdkhistory/[:year]`
+`GET http://apis.airpage.org/[:token]/dkdkhistory/[:year]/[:friendid]`
 
 ### URL 파라메터
 
@@ -357,6 +359,7 @@ else:
 token | 부여받은 개발자 토큰값을 입력합니다. 
 dkdkhistory | 'dkdkhistory'을 입력합니다. 
 year | 확인하고픈 연도 4자리 숫자를 입력합니다. 
+friendid | 친구의 닉네임을 입력합니다. 
 
 # 시시콜콜(콜백나우) API 사용법 
 
