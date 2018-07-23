@@ -255,6 +255,12 @@
                     <a href="#18135c172a" class="toc-h2 toc-link" data-title="">친구신청 하기</a>
                   </li>
                   <li>
+                    <a href="#0cdb74fef6" class="toc-h2 toc-link" data-title="">친구와 헤어지기</a>
+                  </li>
+                  <li>
+                    <a href="#07877136ef" class="toc-h2 toc-link" data-title="">친구목록 보기</a>
+                  </li>
+                  <li>
                     <a href="#6bbb609d78" class="toc-h2 toc-link" data-title="">두근거림 전송하기</a>
                   </li>
                   <li>
@@ -395,6 +401,130 @@ echo $result;
 <aside class="warning">
 GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
 </aside>
+<h2 id='0cdb74fef6'>친구와 헤어지기</h2><pre class="highlight shell tab-shell"><code>
+curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdkbye/friendid"</span>
+
+</code></pre><pre class="highlight php tab-php"><code>
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkbye/friendid");
+$result = curl_exec($get);
+echo $result;
+
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/dkdkbye/friendid"</span><span class="p">,</span>
+  <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
+  <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
+  <span class="na">error</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span> <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/dkdkbye/friendid'</span> 
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"error"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"success"</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre>
+<blockquote>
+<p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>지정한 친구와 헤어집니다</p>
+<h3 id='http-2'>HTTP 요청</h3>
+<p><code>GET http://apis.airpage.org/[:token]/dkdkbye/[:friendid]</code></p>
+<h3 id='url-2'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>부여받은 개발자 토큰값을 입력합니다.</td>
+</tr>
+<tr>
+<td>dkdkbye</td>
+<td>&#39;dkdkbye&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>friendid</td>
+<td>친구의 아이디를 입력합니다.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
+</aside>
+<h2 id='07877136ef'>친구목록 보기</h2><pre class="highlight shell tab-shell"><code>
+curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdkfriends"</span>
+
+</code></pre><pre class="highlight php tab-php"><code>
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkfriends");
+$result = curl_exec($get);
+echo $result;
+
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span> <span class="p">:</span> <span class="s2">"http://apis.airpage.org/your-access-token/dkdkfriends"</span><span class="p">,</span>
+  <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"jsonp"</span><span class="p">,</span>
+  <span class="na">type</span> <span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span> <span class="p">},</span>
+  <span class="na">error</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span> <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span> 
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://apis.airpage.org/your-access-token/dkdkfriends'</span> 
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">200</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"error"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"success"</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre>
+<blockquote>
+<p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>내 친구의 목록을 확인합니다</p>
+<h3 id='http-3'>HTTP 요청</h3>
+<p><code>GET http://apis.airpage.org/[:token]/dkdkfriends</code></p>
+<h3 id='url-3'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>부여받은 개발자 토큰값을 입력합니다.</td>
+</tr>
+<tr>
+<td>dkdkfriend</td>
+<td>&#39;dkdkfriends&#39;을 입력합니다.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
+</aside>
 <h2 id='6bbb609d78'>두근거림 전송하기</h2><pre class="highlight shell tab-shell"><code>
 curl <span class="s2">"http://apis.airpage.org/your-access-token/dkdktouch/friendid"</span>
 
@@ -436,9 +566,9 @@ echo $result;
 
 </span></code></pre>
 <p>친구에게 두근거림을 전송합니다.</p>
-<h3 id='http-2'>HTTP 요청</h3>
+<h3 id='http-4'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/dkdktouch/[:friendid]</code></p>
-<h3 id='url-2'>URL 파라메터</h3>
+<h3 id='url-4'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -499,9 +629,9 @@ echo $result;
 
 </span></code></pre>
 <p>친구에게 전송하던 두근거림을 멈춥니다.</p>
-<h3 id='http-3'>HTTP 요청</h3>
+<h3 id='http-5'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/dkdkup/friendid</code></p>
-<h3 id='url-3'>URL 파라메터</h3>
+<h3 id='url-5'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -582,9 +712,9 @@ echo $result;
 
 </span></code></pre>
 <p>친구와 주고받은 하트수와 시각을 응답합니다.</p>
-<h3 id='http-4'>HTTP 요청</h3>
+<h3 id='http-6'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/dkdkhistory/[:year]/[:friendid]</code></p>
-<h3 id='url-4'>URL 파라메터</h3>
+<h3 id='url-6'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -649,9 +779,9 @@ echo $result;
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>친구에게 전화요청을 전송합니다.</p>
-<h3 id='http-5'>HTTP 요청</h3>
+<h3 id='http-7'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/neocallback/[:phonenumber]/[:iso]/[:friendid]</code></p>
-<h3 id='url-5'>URL 파라메터</h3>
+<h3 id='url-7'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -817,9 +947,9 @@ function send_sisicallcall_service($p_myphonenumber, $p_myiso, $p_phonenumber, $
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>친구에게 전화요청을 전송합니다.</p>
-<h3 id='http-6'>HTTP 요청</h3>
+<h3 id='http-8'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/neocancel/[:friendid]</code></p>
-<h3 id='url-6'>URL 파라메터</h3>
+<h3 id='url-8'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -882,9 +1012,9 @@ echo $result;
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>API를 호출하는 호스트의 사설 IP대역에 켜져 있는 PC목록을 요청합니다.</p>
-<h3 id='http-7'>HTTP 요청</h3>
+<h3 id='http-9'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/comlist</code></p>
-<h3 id='url-7'>URL 파라메터</h3>
+<h3 id='url-9'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -943,9 +1073,9 @@ echo $result;
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>API를 호출하는 호스트의 사설 IP대역에 켜져 있는 1개 PC 상태를 요청합니다.</p>
-<h3 id='http-8'>HTTP 요청</h3>
+<h3 id='http-10'>HTTP 요청</h3>
 <p><code>GET http://apis.airpage.org/[:token]/comone/[:ip]/[:pcname]</code></p>
-<h3 id='url-8'>URL 파라메터</h3>
+<h3 id='url-10'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1007,9 +1137,9 @@ echo $result;
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>API를 호출하는 호스트의 사설 IP대역에 켜져 있는 1개 PC 상태를 요청합니다.</p>
-<h3 id='http-9'>HTTP 요청</h3>
+<h3 id='http-11'>HTTP 요청</h3>
 <p><code>GET http://[:ip]/doaction=PLEASESHUTDOWNNOW&amp;from=API</code></p>
-<h3 id='url-9'>URL 파라메터</h3>
+<h3 id='url-11'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
