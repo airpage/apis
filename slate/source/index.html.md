@@ -133,6 +133,145 @@ friendid | 친구의 아이디를 입력합니다.
 GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
 </aside>
 
+## 친구와 헤어지기 
+
+
+```shell
+
+curl "http://apis.airpage.org/your-access-token/dkdkbye/friendid"
+
+```
+
+```php
+
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkbye/friendid");
+$result = curl_exec($get);
+echo $result;
+
+```
+
+```javascript
+
+$.ajax({
+  url : "http://apis.airpage.org/your-access-token/dkdkbye/friendid",
+  dataType : "jsonp",
+  type : "GET",
+  success : function(r) { console.log(JSON.stringify(r)); },
+  error : function(err) { console.log(JSON.stringify(err)); }
+});
+
+```
+
+```python
+
+import requests 
+URL = 'http://apis.airpage.org/your-access-token/dkdkbye/friendid' 
+res = requests.get(URL)
+
+if res.status_code is not 200:
+  print ("error")
+else:
+  print ("success")
+  print (res.text)
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result": "success"
+  }
+```
+
+지정한 친구와 헤어집니다
+
+### HTTP 요청 
+
+`GET http://apis.airpage.org/[:token]/dkdkbye/[:friendid]`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+token | 부여받은 개발자 토큰값을 입력합니다. 
+dkdkbye | 'dkdkbye'을 입력합니다. 
+friendid | 친구의 아이디를 입력합니다.
+
+<aside class="warning">
+GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
+</aside>
+
+## 친구목록 보기 
+
+
+```shell
+
+curl "http://apis.airpage.org/your-access-token/dkdkfriends"
+
+```
+
+```php
+
+$get = curl_init();
+curl_setopt($get, CURLOPT_URL, "http://apis.airpage.org/your-access-token/dkdkfriends");
+$result = curl_exec($get);
+echo $result;
+
+```
+
+```javascript
+
+$.ajax({
+  url : "http://apis.airpage.org/your-access-token/dkdkfriends",
+  dataType : "jsonp",
+  type : "GET",
+  success : function(r) { console.log(JSON.stringify(r)); },
+  error : function(err) { console.log(JSON.stringify(err)); }
+});
+
+```
+
+```python
+
+import requests 
+URL = 'http://apis.airpage.org/your-access-token/dkdkfriends' 
+res = requests.get(URL)
+
+if res.status_code is not 200:
+  print ("error")
+else:
+  print ("success")
+  print (res.text)
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result": "success"
+  }
+```
+
+내 친구의 목록을 확인합니다
+
+### HTTP 요청 
+
+`GET http://apis.airpage.org/[:token]/dkdkfriends`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+token | 부여받은 개발자 토큰값을 입력합니다. 
+dkdkfriend | 'dkdkfriends'을 입력합니다. 
+
+<aside class="warning">
+GET 형식으로 API가 호출되는 만큼 토큰의 노출에 유의하세요!
+</aside>
+
 ## 두근거림 전송하기
 
 
