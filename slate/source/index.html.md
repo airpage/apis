@@ -25,7 +25,7 @@ search: true
 이곳은 '시시콜콜(콜백나우)', '컴다운'의 OPEN API 사용법을 제공하는 사이트 입니다.
 쌈박하고 깔끔한 아이디어가 녹아든 쉽고 간편한 OPEN API와 코드들을 둘러 보세요.
 
-- 두근두근(DKDK) API의 사용방법은 <a href='https://top.dkdk.io/dev/'>https://dev.dkdk.io</a> 에서 확인하실 수 있습니다.
+- 두근두근(DKDK) API의 사용방법은 <a href='https://dev.dkdk.io'>https://dev.dkdk.io</a> 에서 확인하실 수 있습니다.
 
 # 토큰 발급 받기
 
